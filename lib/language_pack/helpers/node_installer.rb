@@ -43,6 +43,7 @@ class LanguagePack::NodeInstaller
       FileUtils.mv(npm_bin, ".")
       FileUtils.cp_r("#{MODERN_BINARY_PATH}/lib", "..")
       FileUtils.rm_rf(MODERN_BINARY_PATH)
+      p "lib file contents: #{Dir.glob('../lib/*')}"
     end
   end
 
