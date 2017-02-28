@@ -52,7 +52,6 @@ class LanguagePack::NodeInstaller
       p "which npm? #{`which npm`}"
       p "which node? #{`which node`}"
       p "env? #{ENV['PATH']}"
-      `cd ../client && npm install`
     end
   end
 
