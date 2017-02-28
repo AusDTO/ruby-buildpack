@@ -32,12 +32,16 @@ class LanguagePack::NodeInstaller
   end
 
   def install
+    p "installing node"
     if @legacy
       @fetchers[:legacy].fetch_untar("#{LEGACY_BINARY_PATH}.tgz")
     else
       node_bin = "#{MODERN_BINARY_PATH}/bin/node"
-      @fetchers[:modern].fetch_untar("#{MODERN_BINARY_PATH}.tar.gz", "#{MODERN_BINARY_PATH}/bin/node")
+      npm_bin = "#{MODERN_BINARY_PATH}/bin/npm"
+      @fetchers[:modern].fetch_untar("#{MODERN_BINARY_PATH}.tar.gz", "")
       FileUtils.mv(node_bin, ".")
+      FileUtils.mv(npm_bin, ".")
+      FileUtils.mv("#{MODERN_BINARY_PATH}/lib", "..")
       FileUtils.rm_rf(MODERN_BINARY_PATH)
     end
   end
