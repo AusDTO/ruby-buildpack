@@ -45,6 +45,7 @@ class LanguagePack::NodeInstaller
       FileUtils.ln_s('../lib/node_modules/npm/bin/npm-cli.js', './npm')
       FileUtils.rm_rf(MODERN_BINARY_PATH)
       p "lib file contents: #{Dir.glob('../lib/node_modules')}"
+      p "parent directory contents: #{Dir.glob('../*')}"
       p "current contents: #{Dir.glob('./*')}"
     end
   end
