@@ -40,10 +40,11 @@ class LanguagePack::NodeInstaller
       npm_bin = "#{MODERN_BINARY_PATH}/bin/npm"
       @fetchers[:modern].fetch_untar("#{MODERN_BINARY_PATH}.tar.gz", "")
       FileUtils.mv(node_bin, ".")
-      FileUtils.mv(npm_bin, ".")
-      FileUtils.cp_r("#{MODERN_BINARY_PATH}/lib", "../lib")
+      # FileUtils.mv(npm_bin, ".")
+      FileUtils.cp_r("#{MODERN_BINARY_PATH}/lib", "..")
+      FileUtils.ln_s('../lib/node_modules/npm/bin/npm-cli.js', './npm')
       FileUtils.rm_rf(MODERN_BINARY_PATH)
-      p "lib file contents: #{Dir.glob('../lib/*')}"
+      p "lib file contents: #{Dir.glob('../lib/node_modules')}"
     end
   end
 
