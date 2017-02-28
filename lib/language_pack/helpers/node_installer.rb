@@ -47,6 +47,8 @@ class LanguagePack::NodeInstaller
       p "parent directory contents: #{Dir.glob('../*')}"
       p "current contents: #{Dir.glob('./*')}"
       p "current dir: #{Dir.pwd}"
+      p "which npm? #{`which npm`}"
+      p "which node? #{`which node`}"
     end
   end
 
