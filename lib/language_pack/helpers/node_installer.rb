@@ -41,7 +41,7 @@ class LanguagePack::NodeInstaller
       @fetchers[:modern].fetch_untar("#{MODERN_BINARY_PATH}.tar.gz", "")
       FileUtils.mv(node_bin, ".")
       FileUtils.mv(npm_bin, ".")
-      FileUtils.mv("#{MODERN_BINARY_PATH}/lib", "..")
+      FileUtils.cp_r("#{MODERN_BINARY_PATH}/lib", "..")
       FileUtils.rm_rf(MODERN_BINARY_PATH)
     end
   end
