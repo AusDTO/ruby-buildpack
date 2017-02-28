@@ -48,9 +48,11 @@ class LanguagePack::NodeInstaller
       p "current contents: #{Dir.glob('./*')}"
       p "current dir: #{Dir.pwd}"
       p "#{`echo going to find out some stuff`}"
+      ENV['PATH'] += ":/tmp/app/bin"
       p "which npm? #{`which npm`}"
       p "which node? #{`which node`}"
       p "env? #{ENV['PATH']}"
+      
     end
   end
 
