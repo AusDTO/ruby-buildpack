@@ -50,7 +50,7 @@ class LanguagePack::NodeInstaller
       p "#{`echo going to find out some stuff`}"
       p "which npm? #{`which npm`}"
       p "which node? #{`which node`}"
-      p "env? #{`ENV`}"
+      p "env? #{ENV['PATH']}"
     end
   end
 
